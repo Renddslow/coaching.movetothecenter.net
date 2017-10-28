@@ -1,0 +1,23 @@
+<md-card class="request-card" *ngIf="requestData">
+	<div class="indicator {{ requestData['status'] }}"></div> <!-- Stuff -->
+	<div class="request-card-meta">
+		<md-card-title>{{ requestData['goal'] || 'No Goal' }}</md-card-title>
+		<md-card-subtitle *ngIf="requestData['assigned'] && !requestData['started']"><strong>Date Assigned:</strong> Not Started</md-card-subtitle>
+		<md-card-subtitle *ngIf="requestData['started']"><strong>Date Started:</strong> {{ requestData['started'] }}</md-card-subtitle>
+		<md-card-subtitle *ngIf="requestData['completed']"><strong>Date Completed:</strong> {{ requestData['completed'] }}</md-card-subtitle>
+	</div>
+	<div *ngIf="requestData['coach']" class="request-card-coach" [routerLink]="['/person/', requestData['coach']['id']]">
+		<md-card-subtitle>Coach</md-card-subtitle>
+		<div md-card-avatar class="request-card-image" [ngStyle]="{'background-image': 'url(' + requestData['coach']['image'] + ')'}"></div>
+		<md-card-title class="request-card-name">{{ requestData['coach']['firstName'] }}</md-card-title>
+		<div class="request-rating" *ngIf="requestData['coach']['rating']">
+			<md-icon>thumb_up</md-icon>
+			<md-icon>thumb_down</md-icon>
+		</div>
+	</div>
+	<div *ngIf="!requestData['coach']" class="request-card-coach">
+		<md-card-actions>
+			<button md-button (click)="assignPerson(id)">ASSIGN</button>
+		</md-card-actions>
+	</div>
+</md-card>

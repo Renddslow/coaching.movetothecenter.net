@@ -1,0 +1,16 @@
+<md-toolbar color="primary">
+  <span>Coaching</span>
+  <span class="spacer"></span>
+	<button md-icon-button><md-icon class="icon" [routerLink]="['/']">dashboard</md-icon></button>
+  <button md-icon-button><md-icon class="icon" [routerLink]="['people']">group</md-icon></button>
+	<md-icon class="icon">notifications</md-icon>
+
+	<md-menu #settingsMenu="mdMenu">
+	  <button md-menu-item> Settings </button>
+	  <button md-menu-item> Help </button>
+	</md-menu>
+
+	<button md-icon-button [mdMenuTriggerFor]="settingsMenu">
+		<md-icon class="icon">more_vert</md-icon>
+	</button>
+</md-toolbar>

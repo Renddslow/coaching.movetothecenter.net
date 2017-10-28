@@ -1,0 +1,37 @@
+.request-card {
+	width: 250px;
+	display: block;
+	margin: 1em auto 0;
+}
+
+.profile-name,
+.profile-goal {
+	text-align: center;
+}
+
+.profile-goal {
+	margin: 0 auto;
+}
+
+.coach {
+	margin: 24px 0 12px;
+	border-top: 1px solid #eee;
+	border-bottom: 1px solid #eee;
+	padding: 12px 0;
+}
+
+.coach .mat-card-subtitle {
+	margin-bottom: 0;
+}
+
+.profile-image {
+  width: 100px;
+  height: 100px;
+	margin: 0 auto 12px;
+	background-size: cover;
+	background-position: center;
+}
+
+.request-card .mat-button {
+	margin: 12px auto;
+}

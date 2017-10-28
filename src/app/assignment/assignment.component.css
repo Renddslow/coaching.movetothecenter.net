@@ -1,0 +1,81 @@
+.profile-name {
+	text-align: center;
+	padding-top: 1em;
+}
+
+.profile-stage {
+	width: 250px;
+  margin: 0 auto;
+  display: block;
+}
+
+.mat-chip {
+	margin: auto;
+}
+
+.contact-info {
+  width: 25%;
+  display: flex;
+  margin: .5em auto;
+}
+
+.contact-info .mat-icon {
+  padding: 5px;
+  background: #FFD54F;
+  border-radius: 100px;
+  margin: auto;
+  color: rgba(255,255,255,0.87);
+	cursor: pointer;
+}
+
+.mat-card-content {
+	width: 60%;
+	margin: 0 auto;
+	display: block;
+}
+
+.mat-card-content strong {
+	display: block;
+	margin-top: 2em;
+}
+
+.mat-card-content:first-of-type {
+	margin-top: 3em;
+}
+
+.profile-image {
+  width: 100px;
+  height: 100px;
+	margin: 0 auto;
+	background-size: cover;
+	background-position: center;
+}
+
+.mat-input-container {
+  width: 100%;
+}
+
+.card-container {
+	display: flex;
+	display: -webkit-flex;
+	flex-direction: row;
+	-webkit-flex-direction: row;
+	-webkit-justify-content: flex-start;
+	justify-content: flex-start;
+	-webkit-align-items: flex-start;
+	align-items: flex-start;
+	-webkit-flex-flow: row wrap;
+	flex-flow: row wrap;
+	max-width: 942px;
+	margin: 0 auto;
+}
+
+person-card {
+	margin: 1em .5em;
+}
+
+@media screen and (max-width: 640px) {
+	.mat-card-content {
+		width: 90%;
+	}
+}

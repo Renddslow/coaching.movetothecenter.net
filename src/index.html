@@ -7,6 +7,21 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<script src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>
+	<script>
+	  var config = {
+	    apiKey: "AIzaSyDjknRM7PDB-6s4T5agr8j5FNQGzltj_7k",
+	    authDomain: "move-to-the-center.firebaseapp.com",
+	    databaseURL: "https://move-to-the-center.firebaseio.com",
+	    projectId: "move-to-the-center",
+	    storageBucket: "move-to-the-center.appspot.com",
+	    messagingSenderId: "828082376850"
+	  };
+	  firebase.initializeApp(config);
+		window.firebase = firebase;
+	</script>
 </head>
 <body>
   <app-root></app-root>

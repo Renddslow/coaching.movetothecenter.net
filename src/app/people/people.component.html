@@ -1,0 +1,14 @@
+<md-card>
+	<md-input-container>
+		<md-icon mdPrefix>search</md-icon>
+		<input mdInput placeholder="Search People" #searchTerm value="" (keyup)="searchPeople(searchTerm)">
+	</md-input-container>
+</md-card>
+
+<div class="card-container">
+	<person-card *ngFor="let person of people" [person]="person"></person-card>
+</div>
+
+<button md-fab color="primary" class="move-fab" [routerLink]="['/people/create']">
+    <md-icon class="md-24">add</md-icon>
+</button>

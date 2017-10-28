@@ -1,0 +1,111 @@
+.request-card {
+  width: 50%;
+  margin: 1em auto .5em;
+	position: relative;
+}
+
+.request-card .indicator {
+	width: 6px;
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+}
+
+.request-card .indicator.ACTIVE {
+	background: #FFCA28;
+}
+
+.request-card .indicator.COMPLETE {
+	background: #81C784;
+}
+
+.request-card .indicator.CANCELLED {
+	background: #424242;
+}
+
+.request-card .indicator.PENDING {
+	background: #FF3D00;
+}
+
+.request-card-coach {
+  width: 25%;
+  display: block;
+  float: right;
+}
+
+md-card.request-card.mat-card {
+  overflow: hidden;
+}
+
+.request-card-meta {
+  float: left;
+  width: 75%;
+	margin: 2em 0 0;
+	box-sizing: border-box;
+	padding: 0 3em;
+}
+
+.request-card-coach .mat-card-subtitle {
+  text-align: center;
+}
+
+.request-card-name {
+  text-align: center;
+  padding-top: .5em;
+  display: block;
+}
+
+.review {
+  width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.review.mat-card-content {
+  width: 100%;
+  margin-top: 0;
+}
+
+.request-rating .mat-icon.material-icons {
+  color: #BDBDBD;
+	width: 45%;
+	margin: auto;
+	text-align: center;
+}
+
+.request-rating .mat-icon.material-icons.negative {
+	color: #EF5350;
+}
+
+.request-rating .mat-icon.material-icons.positive {
+	color: #66BB6A;
+}
+
+.request-card-image {
+	width: 50px;
+	height: 50px;
+	margin: 0 auto;
+	background-size: cover;
+	background-position: center;
+}
+
+.request-card-name {
+	font-size: 1em;
+}
+
+.mat-card-actions {
+	margin: 2em auto 0;
+	display: flex;
+}
+
+.mat-button {
+	margin: auto;
+}
+
+@media screen and (max-width: 960px) {
+	.request-card {
+	  width: 90%;
+	}
+}

@@ -1,0 +1,4 @@
+<div class="card-container">
+	<person-card *ngFor="let request of requests" [person]="request"></person-card>
+	<person-card *ngFor="let pending of pendings" [person]="pending"></person-card>
+</div>

@@ -1,0 +1,19 @@
+<md-card class="request-card" *ngIf="person">
+	<div md-card-avatar class="profile-image" *ngIf="person['image']" [ngStyle]="{'background-image': 'url(' + person['image'] + ')'}"></div>
+	<md-card-title class="profile-name">{{ person['firstName'] }} {{ person['lastName'] }}</md-card-title>
+	<md-chip-list>
+		<md-chip class="profile-goal" *ngIf="person['goal']">{{ person['goal'] }}</md-chip>
+	</md-chip-list>
+	<md-card-header class="coach" *ngIf="person['coach']">
+		<div md-card-avatar *ngIf="person['coach']['image']" [ngStyle]="{'background-image': 'url(' + person['coach']['image'] + ')'}"></div>
+		<md-card-title>{{ person['coach']['firstName'] }} {{ person['coach']['lastName'] }}</md-card-title>
+		<md-card-subtitle>Pending Acceptance</md-card-subtitle>
+	</md-card-header>
+	<md-card-actions>
+		<button md-raised-button *ngIf="person['coach'] && user.uid === person['coach']['id']" color="primary" (click)="acceptAssignment(person['assignmentId'])">ACCEPT</button>
+    <button md-button *ngIf="person['coach'] && user.uid !== person['coach']['id']" (click)="sendReminder($event.target, person['coach']['email'])">SEND REMINDER</button>
+		<button md-button *ngIf="person['type'] === 'REQUEST'" (click)="assignPerson(person.id)">ASSIGN</button>
+    <button md-button (click)="viewProfile(person.id)">VIEW PROFILE</button>
+		<button md-raised-button *ngIf="person['type'] === 'COACH'" (click)="assignPersonTo(person['pbcId'], person['id'])" color="primary">ASSIGN</button>
+  </md-card-actions>
+</md-card>
