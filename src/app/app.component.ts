@@ -12,8 +12,7 @@ export class AppComponent implements OnInit {
 	ngOnInit() {
 		this.firebase.database()
 			.ref(`people/${this.firebase.auth().currentUser.uid}`)
-			.once('value')
-			.then(res => {
+			.on('value', res => {
 				const data = res.val();
 				data.uid = this.firebase.auth().currentUser.uid;
 				localStorage.setItem('user', JSON.stringify(data));

@@ -12,7 +12,7 @@ export class DashboardComponent implements OnInit {
 	firebase = window['firebase'];
 	requests = [];
 	pendings = [];
-	user = JSON.parse(localStorage.user);
+	user = JSON.parse(localStorage.user || "{}");
 
   constructor(private http: Http, private router: Router, private route: ActivatedRoute) { }
 
@@ -65,9 +65,9 @@ export class DashboardComponent implements OnInit {
 				this.firebase.database()
 					.ref('assignments')
 					.orderByChild('coach/id')
-					.equalTo(this.user.uid)
+					.equalTo(this.user.uid || this.firebase.auth().currentUser.uid)
 					.on('value', res => {
-						const data = res.json();
+						const data = res.val();
 						this.pendings = Object.keys(data || {}).map(key => {
 							const person = data[key];
 							person.id = person.personId;

@@ -11,7 +11,7 @@ export class PersonCardComponent {
 	@Input() person: object;
 
 	firebase = window['firebase'];
-	user = JSON.parse(localStorage.user);
+	user = JSON.parse(localStorage.user || "{}");
 
 	constructor(private router: Router, private http: Http) {}
 
