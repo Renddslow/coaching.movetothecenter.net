@@ -22,12 +22,12 @@ export class DashboardComponent implements OnInit {
 				.ref('requests')
 				.on('value', res => {
 					const data = res.val();
-					this.requests.push(...Object.keys(data).map(key => {
+					this.requests = Object.keys(data || {}).map(key => {
 						const person = data[key];
 						person.id = key;
 						person.type = 'REQUEST'
 						return person;
-					}));
+					});
 					this.requests.sort((a, b) => {
 						if (a.firstName < b.firstName) {
 							return -1;
@@ -44,13 +44,13 @@ export class DashboardComponent implements OnInit {
 				.equalTo('PENDING')
 				.on('value', res => {
 					const data = res.val();
-					this.pendings.push(...Object.keys(data).map(key => {
+					this.pendings = Object.keys(data || {}).map(key => {
 						const person = data[key];
 						person.id = person.personId;
 						person.assignmentId = key;
 						person.type = 'ASSIGNMENT'
 						return person;
-					}));
+					});
 					this.pendings.sort((a, b) => {
 						if (a.firstName < b.firstName) {
 							return -1;
@@ -68,13 +68,13 @@ export class DashboardComponent implements OnInit {
 					.equalTo(this.user.uid)
 					.on('value', res => {
 						const data = res.json();
-						this.pendings.push(...Object.keys(data).map(key => {
+						this.pendings = Object.keys(data || {}).map(key => {
 							const person = data[key];
 							person.id = person.personId;
 							person.assignmentId = key;
 							person.type = 'ASSIGNMENT';
 							return person;
-						}));
+						});
 						this.pendings.sort((a, b) => {
 							if (a.firstName < b.firstName) {
 								return -1;

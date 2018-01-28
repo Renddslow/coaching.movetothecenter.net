@@ -48,6 +48,10 @@ export class AssignPersonComponent implements OnInit {
 						status: 'PENDING',
 						assigned: moment().unix()
 					};
+					this.http.post('https://api.flatlandchurch.com/v2/email/coachingAssignments', {
+						person,
+						coach
+					});
 					return this.firebase.database()
 						.ref(`assignments/${moment().unix()}`)
 						.set(assignmentData);

@@ -35,7 +35,7 @@
   float: right;
 }
 
-md-card.request-card.mat-card {
+mat-card.request-card.mat-card {
   overflow: hidden;
 }
 

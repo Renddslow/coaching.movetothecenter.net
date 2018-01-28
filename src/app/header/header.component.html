@@ -1,16 +1,16 @@
-<md-toolbar color="primary">
+<mat-toolbar color="primary">
   <span>Coaching</span>
   <span class="spacer"></span>
-	<button md-icon-button><md-icon class="icon" [routerLink]="['/']">dashboard</md-icon></button>
-  <button md-icon-button><md-icon class="icon" [routerLink]="['people']">group</md-icon></button>
-	<md-icon class="icon">notifications</md-icon>
+	<button mat-icon-button><mat-icon class="icon" [routerLink]="['/']">dashboard</mat-icon></button>
+  <button mat-icon-button><mat-icon class="icon" [routerLink]="['people']">group</mat-icon></button>
+	<mat-icon class="icon">notifications</mat-icon>
 
-	<md-menu #settingsMenu="mdMenu">
-	  <button md-menu-item> Settings </button>
-	  <button md-menu-item> Help </button>
-	</md-menu>
+	<mat-menu #settingsMenu="matMenu">
+	  <button mat-menu-item> Settings </button>
+	  <button mat-menu-item> Help </button>
+	</mat-menu>
 
-	<button md-icon-button [mdMenuTriggerFor]="settingsMenu">
-		<md-icon class="icon">more_vert</md-icon>
+	<button mat-icon-button [matMenuTriggerFor]="settingsMenu">
+		<mat-icon class="icon">more_vert</mat-icon>
 	</button>
-</md-toolbar>
+</mat-toolbar>

@@ -1,22 +1,22 @@
-<md-card *ngIf="person">
-	<div *ngIf="person['image']" md-card-avatar class="profile-image" [ngStyle]="{'background-image': 'url(' + person['image'] + ')'}"></div>
-	<md-card-title class="profile-name">{{ person['firstName'] }} {{ person['lastName'] }}</md-card-title>
-	<md-chip-list class="profile-stage">
-		<md-chip color="accent" selected="true">{{ person['stage'] }}</md-chip>
-		<md-chip *ngIf="person['status'] == 'ACTIVE'">Active</md-chip>
-		<md-chip *ngIf="!person['status'] == 'ACTIVE'">Inactive</md-chip>
-		<md-chip *ngIf="person['isCoach']">Coach</md-chip>
-		<md-chip *ngIf="person['isAdmin']">Admin</md-chip>
-	</md-chip-list>
+<mat-card *ngIf="person">
+	<div *ngIf="person['image']" mat-card-avatar class="profile-image" [ngStyle]="{'background-image': 'url(' + person['image'] + ')'}"></div>
+	<mat-card-title class="profile-name">{{ person['firstName'] }} {{ person['lastName'] }}</mat-card-title>
+	<mat-chip-list class="profile-stage">
+		<mat-chip color="accent" selected="true">{{ person['stage'] }}</mat-chip>
+		<mat-chip *ngIf="person['status'] == 'ACTIVE'">Active</mat-chip>
+		<mat-chip *ngIf="!person['status'] == 'ACTIVE'">Inactive</mat-chip>
+		<mat-chip *ngIf="person['isCoach']">Coach</mat-chip>
+		<mat-chip *ngIf="person['isAdmin']">Admin</mat-chip>
+	</mat-chip-list>
 	<div class="contact-info" *ngIf="person">
-		<md-icon (click)="callPhone(person['phone'])">phone</md-icon>
-		<md-icon (click)="openEmail(person['email'])">email</md-icon>
+		<mat-icon (click)="callPhone(person['phone'])">phone</mat-icon>
+		<mat-icon (click)="openEmail(person['email'])">email</mat-icon>
 	</div>
-	<md-card-content class="bio" *ngIf="person['bio']"><strong>About {{ person['firstName'] }}</strong>{{ person['bio'] }}</md-card-content>
-	<md-card-content class="availability" *ngIf="person['availability']"><strong>Availability</strong>{{ person['availability'] }}</md-card-content>
-</md-card>
-<md-tab-group>
-  <md-tab label="Requests">
+	<mat-card-content class="bio" *ngIf="person['bio']"><strong>About {{ person['firstName'] }}</strong>{{ person['bio'] }}</mat-card-content>
+	<mat-card-content class="availability" *ngIf="person['availability']"><strong>Availability</strong>{{ person['availability'] }}</mat-card-content>
+</mat-card>
+<mat-tab-group>
+  <mat-tab label="Requests">
 		<request-card
 			*ngIf="request"
 			[requestData]="request"
@@ -25,13 +25,13 @@
 			*ngFor="let assignment of assignmentsPBC"
 			[requestData]="assignment"
 			[id]="personId"></request-card>
-  </md-tab>
-  <md-tab label="Assignments">
+  </mat-tab>
+  <mat-tab label="Assignments">
 		<request-card
 			*ngFor="let assignment of coachingAssignments"
 			[requestData]="assignment"
 			[id]="personId"></request-card>
-  </md-tab>
-	<md-tab label="Notes">
-	</md-tab>
-</md-tab-group>
+  </mat-tab>
+	<mat-tab label="Notes">
+	</mat-tab>
+</mat-tab-group>

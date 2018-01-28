@@ -5,15 +5,15 @@ import { RouterModule, Routes } from '@angular/router';
 import { HttpModule } from '@angular/http';
 import { FormsModule }   from '@angular/forms';
 
-import { 	MdCardModule,
-					MdTabsModule,
-					MdToolbarModule,
-					MdIconModule,
-					MdMenuModule,
-					MdButtonModule,
-					MdChipsModule,
-					MdInputModule,
-					MdProgressBarModule
+import { 	MatCardModule,
+					MatTabsModule,
+					MatToolbarModule,
+					MatIconModule,
+					MatMenuModule,
+					MatButtonModule,
+					MatChipsModule,
+					MatInputModule,
+					MatProgressBarModule
 				} from '@angular/material';
 import 'hammerjs';
 
@@ -55,15 +55,15 @@ const appRoutes: Routes = [
 		RouterModule.forRoot(appRoutes),
 		HttpModule,
 		BrowserAnimationsModule,
-		MdCardModule,
-		MdTabsModule,
-		MdToolbarModule,
-		MdIconModule,
-		MdMenuModule,
-		MdButtonModule,
-		MdChipsModule,
-		MdInputModule,
-		MdProgressBarModule,
+		MatCardModule,
+		MatTabsModule,
+		MatToolbarModule,
+		MatIconModule,
+		MatMenuModule,
+		MatButtonModule,
+		MatChipsModule,
+		MatInputModule,
+		MatProgressBarModule,
 		FormsModule
   ],
   providers: [],

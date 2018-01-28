@@ -3,14 +3,14 @@
 		<h1>Coaching Portal</h1>
 		<p>Login with your Flatland Church Account</p>
 		<form #loginForm="ngForm">
-			<md-input-container>
-				<input mdInput placeholder="Email Address"  [(ngModel)]="user.email" name="email" type="email">
-			</md-input-container>
-			<md-input-container>
-				<input mdInput placeholder="Password"  [(ngModel)]="user.password" name="password" type="password">
-			</md-input-container>
-			<button type="submit" md-raised-button color="primary" (click)="login()">Login</button>
-			<button type="button" md-button>Forgot Password?</button>
+			<mat-input-container>
+				<input matInput placeholder="Email Address"  [(ngModel)]="user.email" name="email" type="email">
+			</mat-input-container>
+			<mat-input-container>
+				<input matInput placeholder="Password"  [(ngModel)]="user.password" name="password" type="password">
+			</mat-input-container>
+			<button type="submit" mat-raised-button color="primary" (click)="login()">Login</button>
+			<button type="button" mat-button>Forgot Password?</button>
 		</form>
 	</div>
 </div>
