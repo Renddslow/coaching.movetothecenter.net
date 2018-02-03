@@ -6,9 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
+	firebase = window['firebase']
 
   navLinks = [
 		"/people"
-	]
+	];
 
+	logout() {
+		this.firebase.auth().signOut();
+	}
 }

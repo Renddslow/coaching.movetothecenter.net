@@ -1,7 +1,8 @@
 <div id="wrapper">
-	<div class="login-modal">
+	<div class="login-modal" *ngIf="!forgotPassword">
 		<h1>Coaching Portal</h1>
 		<p>Login with your Flatland Church Account</p>
+		<p *ngIf="modalMessage" class="success">{{ modalMessage }}</p>
 		<form #loginForm="ngForm">
 			<mat-input-container>
 				<input matInput placeholder="Email Address"  [(ngModel)]="user.email" name="email" type="email">
@@ -10,7 +11,18 @@
 				<input matInput placeholder="Password"  [(ngModel)]="user.password" name="password" type="password">
 			</mat-input-container>
 			<button type="submit" mat-raised-button color="primary" (click)="login()">Login</button>
-			<button type="button" mat-button>Forgot Password?</button>
+			<button type="button" mat-button (click)="changeModal(true)">Forgot Password?</button>
+		</form>
+	</div>
+	<div class="login-modal" *ngIf="forgotPassword">
+		<h1>Coaching Portal</h1>
+		<p>Forgot your password?</p>
+		<form #loginForm="ngForm">
+			<mat-input-container>
+				<input matInput placeholder="Email Address"  [(ngModel)]="user.email" name="email" type="email">
+			</mat-input-container>
+			<button type="submit" mat-raised-button color="primary" (click)="sentPasswordReset()">Send Password Reset</button>
+			<button type="button" mat-button (click)="changeModal(false)">Sign In</button>
 		</form>
 	</div>
 </div>

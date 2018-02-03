@@ -10,9 +10,11 @@ export class LoginComponent {
 	user = {
 		email: null,
 		password: null
-	}
+	};
+	forgotPassword = false;
+	modalMessage = null;
 
-	login() {
+	login = () => {
 		this.firebase
 			.auth()
 			.signInWithEmailAndPassword(this.user.email, this.user.password)
@@ -28,6 +30,24 @@ export class LoginComponent {
 			})
 			.catch(error => {
 				console.log(error);
+			});
+	};
+
+	changeModal = forgot => {
+		if (forgot) {
+			this.forgotPassword = true;
+		} else {
+			this.forgotPassword = false;
+		}
+	};
+
+	sentPasswordReset = () => {
+		this.firebase
+			.auth()
+			.sendPasswordResetEmail(this.user.email, { url: 'https://portal.movetothecenter.net' })
+			.then(() => {
+				this.forgotPassword = false;
+				this.modalMessage = 'Check your inbox for password reset instructions.';
 			});
 	}
 }

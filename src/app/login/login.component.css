@@ -24,3 +24,7 @@ p {
 .mat-input-container {
 	display: block;
 }
+
+.success {
+	color: #2ECC71;
+}
