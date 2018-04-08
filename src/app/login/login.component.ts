@@ -13,6 +13,7 @@ export class LoginComponent {
 	};
 	forgotPassword = false;
 	modalMessage = null;
+	error;
 
 	login = () => {
 		this.firebase
@@ -29,7 +30,7 @@ export class LoginComponent {
 					});
 			})
 			.catch(error => {
-				console.log(error);
+				this.error = error.message;
 			});
 	};
 

@@ -4,9 +4,10 @@
 }
 
 .profile-stage {
-	width: 250px;
+	max-width: 290px;
   margin: 0 auto;
   display: block;
+	width: 100%;
 }
 
 .mat-chip {
@@ -49,6 +50,24 @@
 	margin: 0 auto;
 	background-size: cover;
 	background-position: center;
+}
+
+.contacts {
+	width: 100%;
+	display: flex;
+	margin: 0 auto 12px;
+	align-items: center;
+	justify-content: center;
+}
+
+.contacts > p {
+	display: flex;
+	align-items: center;
+	margin: 0 8px;
+}
+
+.contacts > p > a {
+	margin-left: 4px;
 }
 
 @media screen and (max-width: 640px) {

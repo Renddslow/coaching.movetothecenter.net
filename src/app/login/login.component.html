@@ -2,6 +2,7 @@
 	<div class="login-modal" *ngIf="!forgotPassword">
 		<h1>Coaching Portal</h1>
 		<p>Login with your Flatland Church Account</p>
+		<p class="error" *ngIf="error">{{ error }}</p>
 		<p *ngIf="modalMessage" class="success">{{ modalMessage }}</p>
 		<form #loginForm="ngForm">
 			<mat-input-container>
