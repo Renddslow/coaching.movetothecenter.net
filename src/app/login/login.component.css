@@ -28,3 +28,7 @@ p {
 .success {
 	color: #2ECC71;
 }
+
+.error {
+	color: #d22;
+}
