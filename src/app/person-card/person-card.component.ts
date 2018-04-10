@@ -1,6 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { Http } from '@angular/http';
 import { Router } from '@angular/router';
+import * as moment from 'moment';
+import {assign} from 'rxjs/util/assign';
 
 @Component({
   selector: 'person-card',
@@ -51,8 +53,48 @@ export class PersonCardComponent {
 
   markRequestAsSeen = id => {
     const notifs = JSON.parse(window.localStorage.getItem('notifications') || '{}');
-    notifs[id]['seen'] = true;
+    if (notifs[id]) {
+      notifs[id]['seen'] = true;
+    }
     window.localStorage.setItem('notifications', JSON.stringify(notifs));
+  };
+
+  declineAssignment = assignmentId => {
+    this.markRequestAsSeen(assignmentId);
+    this.firebase.database()
+      .ref(`assignments/${assignmentId}`)
+      .once('value')
+      .then(assignment => assignment.val())
+      .then(assignment => {
+        const declined = moment().unix();
+        const historyEntry = {
+          coach: assignment.coach,
+          declined,
+          reason: '',
+          assigned: assignment['assigned']
+        };
+        const newRequest = {
+          firstName: assignment['firstName'],
+          lastName: assignment['lastName']
+        };
+        if (assignment['image']) {
+          newRequest['image'] = assignment['image'];
+        }
+        let history = {};
+        if (assignment['history']) {
+          history = assignment['history'];
+        }
+        history[declined] = historyEntry;
+        newRequest['history'] = history;
+
+        this.firebase.database()
+          .ref(`requests/${assignment['personId']}`)
+          .set(newRequest);
+
+        this.firebase.database()
+          .ref(`assignments/${assignmentId}`)
+          .remove();
+      });
   };
 
 }
