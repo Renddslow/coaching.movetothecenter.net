@@ -13,7 +13,8 @@ import { 	MatCardModule,
   MatButtonModule,
   MatChipsModule,
   MatInputModule,
-  MatProgressBarModule
+  MatProgressBarModule,
+  MatTooltipModule
 } from '@angular/material';
 import 'hammerjs';
 
@@ -64,7 +65,8 @@ const appRoutes: Routes = [
     MatChipsModule,
     MatInputModule,
     MatProgressBarModule,
-    FormsModule
+    FormsModule,
+    MatTooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]

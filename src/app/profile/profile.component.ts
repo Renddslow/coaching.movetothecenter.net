@@ -86,4 +86,8 @@ export class ProfileComponent implements OnInit {
     return data;
   }
 
+  addNote = () => {
+    console.log('Adding note');
+  }
+
 }
