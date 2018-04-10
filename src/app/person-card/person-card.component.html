@@ -12,6 +12,7 @@
 	</mat-card-header>
 	<mat-card-actions>
 		<button mat-raised-button *ngIf="person['coach'] && user.uid === person['coach']['id']" color="primary" (click)="acceptAssignment(person['assignmentId'])">ACCEPT</button>
+    <button mat-button *ngIf="person['coach'] && user.uid === person['coach']['id']" color="primary" (click)="declineAssignment(person['assignmentId'])">DECLINE</button>
     <button mat-button *ngIf="person['coach'] && user.uid !== person['coach']['id']" (click)="sendReminder($event.target, person['coach']['email'])">SEND REMINDER</button>
 		<button mat-button *ngIf="person['type'] === 'REQUEST'" (click)="assignPerson(person.id)">ASSIGN</button>
     <button mat-button (click)="viewProfile(person.id)">VIEW PROFILE</button>
