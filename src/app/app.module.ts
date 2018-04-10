@@ -6,15 +6,15 @@ import { HttpModule } from '@angular/http';
 import { FormsModule }   from '@angular/forms';
 
 import { 	MatCardModule,
-					MatTabsModule,
-					MatToolbarModule,
-					MatIconModule,
-					MatMenuModule,
-					MatButtonModule,
-					MatChipsModule,
-					MatInputModule,
-					MatProgressBarModule
-				} from '@angular/material';
+  MatTabsModule,
+  MatToolbarModule,
+  MatIconModule,
+  MatMenuModule,
+  MatButtonModule,
+  MatChipsModule,
+  MatInputModule,
+  MatProgressBarModule
+} from '@angular/material';
 import 'hammerjs';
 
 
@@ -30,11 +30,11 @@ import { LoginComponent } from './login/login.component';
 import { AssignPersonComponent } from './assign-person/assign-person.component';
 
 const appRoutes: Routes = [
-	{ path: '', component: DashboardComponent },
-	{ path: 'person/:id', component: ProfileComponent },
-	{ path: 'person/:id/assign', component: AssignmentComponent },
-	{ path: 'person/:id/assign/:coachId', component: AssignPersonComponent },
-	{ path: 'people', component: PeopleComponent }
+  { path: '', component: DashboardComponent },
+  { path: 'person/:id', component: ProfileComponent },
+  { path: 'person/:id/assign', component: AssignmentComponent },
+  { path: 'person/:id/assign/:coachId', component: AssignPersonComponent },
+  { path: 'people', component: PeopleComponent }
 ];
 
 @NgModule({
@@ -52,19 +52,19 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
-		RouterModule.forRoot(appRoutes),
-		HttpModule,
-		BrowserAnimationsModule,
-		MatCardModule,
-		MatTabsModule,
-		MatToolbarModule,
-		MatIconModule,
-		MatMenuModule,
-		MatButtonModule,
-		MatChipsModule,
-		MatInputModule,
-		MatProgressBarModule,
-		FormsModule
+    RouterModule.forRoot(appRoutes),
+    HttpModule,
+    BrowserAnimationsModule,
+    MatCardModule,
+    MatTabsModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatMenuModule,
+    MatButtonModule,
+    MatChipsModule,
+    MatInputModule,
+    MatProgressBarModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
