@@ -1,4 +1,5 @@
 <mat-card class="request-card" *ngIf="person">
+  <div class="new-badge" *ngIf="person['hasBadge']">NEW</div>
 	<div mat-card-avatar class="profile-image" *ngIf="person['image']" [ngStyle]="{'background-image': 'url(' + person['image'] + ')'}"></div>
 	<mat-card-title class="profile-name">{{ person['firstName'] }} {{ person['lastName'] }}</mat-card-title>
 	<mat-chip-list>

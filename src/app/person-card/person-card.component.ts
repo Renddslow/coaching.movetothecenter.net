@@ -8,41 +8,51 @@ import { Router } from '@angular/router';
   styleUrls: ['./person-card.component.css']
 })
 export class PersonCardComponent {
-	@Input() person: object;
+  @Input() person: object;
 
-	firebase = window['firebase'];
-	user = JSON.parse(localStorage.user || "{}");
+  firebase = window['firebase'];
+  user = JSON.parse(localStorage.getItem('user') || '{}');
 
-	constructor(private router: Router, private http: Http) {}
+  constructor(private router: Router, private http: Http) {}
 
-	sendReminder = (element, email) => {
-		element.disabled = true;
-		element.textContent = "SENT";
-	};
+  sendReminder = (element, email) => {
+    element.disabled = true;
+    element.textContent = 'SENT';
+  };
 
-	assignPerson = (id) => {
-		this.router.navigate(['/person/', id, 'assign']);
-	};
+  assignPerson = (id) => {
+    this.markRequestAsSeen(id);
+    this.router.navigate(['/person/', id, 'assign']);
+  };
 
-	viewProfile = (id) => {
-		this.router.navigate(['/person/', id])
-	};
+  viewProfile = (id) => {
+    this.markRequestAsSeen(id);
+    this.router.navigate(['/person/', id])
+  };
 
-	assignPersonTo = (pbcId, coachId) => {
-		this.router.navigate(['/person/', pbcId, 'assign', coachId]);
-	};
+  assignPersonTo = (pbcId, coachId) => {
+    this.markRequestAsSeen(pbcId);
+    this.router.navigate(['/person/', pbcId, 'assign', coachId]);
+  };
 
-	acceptAssignment = (assignmentId) => {
-		this.firebase.database()
-			.ref(`assignments/${assignmentId}`)
-			.once('value')
-			.then(assignment => {
-				const data = assignment.val();
-				data.status = 'ACTIVE';
-				this.firebase.database()
-					.ref(`assignments/${assignmentId}`)
-					.set(data);
-			});
-	};
+  acceptAssignment = (assignmentId) => {
+    this.markRequestAsSeen(assignmentId);
+    this.firebase.database()
+      .ref(`assignments/${assignmentId}`)
+      .once('value')
+      .then(assignment => {
+        const data = assignment.val();
+        data.status = 'ACTIVE';
+        this.firebase.database()
+          .ref(`assignments/${assignmentId}`)
+          .set(data);
+      });
+  };
+
+  markRequestAsSeen = id => {
+    const notifs = JSON.parse(window.localStorage.getItem('notifications') || '{}');
+    notifs[id]['seen'] = true;
+    window.localStorage.setItem('notifications', JSON.stringify(notifs));
+  };
 
 }
