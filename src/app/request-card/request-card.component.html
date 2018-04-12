@@ -1,7 +1,10 @@
 <mat-card class="request-card" *ngIf="requestData">
 	<div class="indicator {{ requestData['status'] }}"></div> <!-- Stuff -->
 	<div class="request-card-meta">
-		<mat-card-title>{{ requestData['goal'] || 'No Goal' }}</mat-card-title>
+		<mat-card-title>
+			{{ requestData['goal'] || 'No Goal' }}
+			<mat-icon *ngIf="!requestData['goal']" class="edit-goal" (click)="openDialog()">edit</mat-icon>
+		</mat-card-title>
 		<mat-card-subtitle *ngIf="requestData['assigned'] && !requestData['started']"><strong>Date Assigned:</strong> {{ requestData['assigned'] }}</mat-card-subtitle>
 		<mat-card-subtitle *ngIf="requestData['started']"><strong>Date Started:</strong> {{ requestData['started'] }}</mat-card-subtitle>
 		<mat-card-subtitle *ngIf="requestData['completed']"><strong>Date Completed:</strong> {{ requestData['completed'] }}</mat-card-subtitle>
