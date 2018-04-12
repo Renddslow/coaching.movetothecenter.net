@@ -6,15 +6,17 @@ import { HttpModule } from '@angular/http';
 import { FormsModule }   from '@angular/forms';
 
 import { 	MatCardModule,
-  MatTabsModule,
-  MatToolbarModule,
-  MatIconModule,
-  MatMenuModule,
-  MatButtonModule,
-  MatChipsModule,
-  MatInputModule,
-  MatProgressBarModule
-} from '@angular/material';
+					MatTabsModule,
+					MatToolbarModule,
+					MatIconModule,
+					MatMenuModule,
+					MatButtonModule,
+					MatChipsModule,
+					MatInputModule,
+					MatProgressBarModule,
+					MatDialogModule,
+					MatSelectModule
+				} from '@angular/material';
 import 'hammerjs';
 
 
@@ -28,6 +30,7 @@ import { AssignmentComponent } from './assignment/assignment.component';
 import { PeopleComponent } from './people/people.component';
 import { LoginComponent } from './login/login.component';
 import { AssignPersonComponent } from './assign-person/assign-person.component';
+import { EditDialogComponent } from './edit-dialog/edit-dialog.component';
 
 const appRoutes: Routes = [
   { path: '', component: DashboardComponent },
@@ -48,24 +51,30 @@ const appRoutes: Routes = [
     AssignmentComponent,
     PeopleComponent,
     LoginComponent,
-    AssignPersonComponent
+    AssignPersonComponent,
+    EditDialogComponent
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes),
-    HttpModule,
-    BrowserAnimationsModule,
-    MatCardModule,
-    MatTabsModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatMenuModule,
-    MatButtonModule,
-    MatChipsModule,
-    MatInputModule,
-    MatProgressBarModule,
-    FormsModule
+		RouterModule.forRoot(appRoutes),
+		HttpModule,
+		BrowserAnimationsModule,
+		MatCardModule,
+		MatTabsModule,
+		MatToolbarModule,
+		MatIconModule,
+		MatMenuModule,
+		MatButtonModule,
+		MatChipsModule,
+		MatInputModule,
+		MatProgressBarModule,
+		FormsModule,
+		MatDialogModule,
+		MatSelectModule
   ],
+	entryComponents: [
+		EditDialogComponent
+	],
   providers: [],
   bootstrap: [AppComponent]
 })

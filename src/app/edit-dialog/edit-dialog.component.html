@@ -1,0 +1,14 @@
+<h2 mat-dialog-title>Assign Goal</h2>
+<mat-dialog-content>
+	<p>{{ data.goal }}</p>
+	<mat-form-field>
+		<mat-select placeholder="Goal" [(value)]="goal">
+			<mat-optgroup *ngFor="let g of goals" [label]="g['label']">
+				<mat-option *ngFor="let k of g['goals']" [value]="k">{{ k }}</mat-option>
+			</mat-optgroup>
+		</mat-select>
+	</mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions>
+	<button color="primary" mat-raised-button (click)="saveSettings()">Save</button>
+</mat-dialog-actions>
