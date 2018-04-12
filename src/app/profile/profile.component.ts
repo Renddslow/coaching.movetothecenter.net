@@ -37,7 +37,20 @@ export class ProfileComponent implements OnInit {
               data['id'] = key;
               return data;
             })
-            .filter(data => !data['deleted']);
+            .filter(data => !data['deleted'])
+            .filter(data => {
+              const userIsCreator = data['privacy']['creator'] === this.firebase.auth().currentUser.uid;
+              const privacyLevel = data['privacy']['level'];
+
+              const user = JSON.parse(window.localStorage.getItem('user') || '{}');
+              const userIsAdminOrCoach = user['isCoach'] && user['isAdmin'];
+
+              switch (privacyLevel) {
+                case 'CREATOR_ONLY': return userIsCreator;
+                case 'ADMINS': return user['isAdmin'];
+                case 'COACHES': return userIsAdminOrCoach;
+              }
+            });
           this.notes.sort((a, b) => {
             if (a['created'] > b['created']) {
               return -1;
@@ -112,7 +125,7 @@ export class ProfileComponent implements OnInit {
       data['assigned'] = moment.unix(data['assigned']).format('MMMM d, YYYY');
     }
     return data;
-  }
+  };
 
   addNote = () => {
     let dialogRef = this.dialog.open(NotesDialogComponent, {
