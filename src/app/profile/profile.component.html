@@ -44,5 +44,13 @@
 			[id]="personId"></request-card>
   </mat-tab>
 	<mat-tab label="Notes">
+    <note-card
+		 *ngFor="let note of notes"
+		 [note]="note"
+		 (click)="openNote(note)"
+		></note-card>
+    <button mat-fab color="primary" class="move-fab" (click)="addNote()">
+      <mat-icon class="mat-24">add</mat-icon>
+    </button>
 	</mat-tab>
 </mat-tab-group>

@@ -1,0 +1,10 @@
+<mat-card class="note-card" *ngIf="note['content']">
+	<p>{{ note['content'] }}</p>
+	<mat-card-footer>
+		<sub>Created {{ note['created'] }}</sub>
+		<sub> • </sub>
+		<sub>Last Modified {{ note['lastModified'] }}</sub>
+		<sub> • </sub>
+		<sub>{{ note['privacyMessage'] }}</sub>
+	</mat-card-footer>
+</mat-card>

@@ -1,0 +1,40 @@
+<h2 mat-dialog-title>{{ editType }} Note</h2>
+<mat-dialog-content>
+	<simplemde [(ngModel)]="note['content']" *ngIf="canEdit"></simplemde>
+	<p *ngIf="!canEdit" [innerHtml]="toMarkdown(note['content'])"></p>
+
+	<mat-form-field>
+		<mat-select placeholder="Who can see this?" [(value)]="note['privacy']['level']">
+			<mat-option value="CREATOR_ONLY">Only you</mat-option>
+			<mat-option value="ADMINS">You and coaching admins</mat-option>
+			<mat-option value="COACHES">All coaches</mat-option>
+		</mat-select>
+	</mat-form-field>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+	<button
+		*ngIf="!data.new"
+		color="primary"
+		mat-raised-button
+		(click)="saveNote()"
+		[disabled]="oldContentValue === note['content'] && oldPrivacySetting === note['privacy']['level']">
+			Save
+		</button>
+		<button
+			*ngIf="data.new"
+			color="primary"
+			mat-raised-button
+			(click)="saveNote()"
+			[disabled]="!note['content']">
+				Save
+			</button>
+	<button mat-button mat-dialog-close>Cancel</button>
+	<button
+		color="warn"
+		mat-button
+		*ngIf="!data.new"
+		(click)="deleteNote()">
+			Delete
+		</button>
+</mat-dialog-actions>

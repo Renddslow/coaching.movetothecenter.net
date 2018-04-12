@@ -58,6 +58,7 @@
 	margin: 0 auto 12px;
 	align-items: center;
 	justify-content: center;
+  flex-wrap: wrap;
 }
 
 .contacts > p {

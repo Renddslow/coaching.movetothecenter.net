@@ -1,0 +1,20 @@
+.note-card {
+	width: 50%;
+  margin: 1em auto .5em;
+	position: relative;
+	cursor: pointer;
+}
+
+.note-card p {
+	margin-bottom: 1em;
+}
+
+mat-card.note-card.mat-card {
+	overflow: hidden;
+}
+
+@media screen and (max-width: 960px) {
+	.note-card {
+	  width: 90%;
+	}
+}

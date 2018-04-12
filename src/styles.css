@@ -36,3 +36,11 @@ button {
 	margin: 16px !important;
 	z-index: 300;
 }
+
+.move-fab-mini {
+  position: fixed !important;
+  bottom: calc(56px + 8px);
+  right: 0;
+  margin: 16px !important;
+  z-index: 299;
+}
