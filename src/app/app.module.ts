@@ -33,11 +33,11 @@ import { AssignPersonComponent } from './assign-person/assign-person.component';
 import { EditDialogComponent } from './edit-dialog/edit-dialog.component';
 
 const appRoutes: Routes = [
-	{ path: '', component: DashboardComponent },
-	{ path: 'person/:id', component: ProfileComponent },
-	{ path: 'person/:id/assign', component: AssignmentComponent },
-	{ path: 'person/:id/assign/:coachId', component: AssignPersonComponent },
-	{ path: 'people', component: PeopleComponent }
+  { path: '', component: DashboardComponent },
+  { path: 'person/:id', component: ProfileComponent },
+  { path: 'person/:id/assign', component: AssignmentComponent },
+  { path: 'person/:id/assign/:coachId', component: AssignPersonComponent },
+  { path: 'people', component: PeopleComponent }
 ];
 
 @NgModule({

@@ -1,4 +1,12 @@
+<h2 *ngIf="requests.length">Open Requests</h2>
 <div class="card-container">
 	<person-card *ngFor="let request of requests" [person]="request"></person-card>
+</div>
+<h2 *ngIf="pendings.length">Pending Assignments</h2>
+<div class="card-container">
 	<person-card *ngFor="let pending of pendings" [person]="pending"></person-card>
+</div>
+<div class="no-cards-message" *ngIf="!requests.length && !pendings.length">
+  <h3>Oh boy! There are no open or pending assignments.</h3>
+  <p>What are you still doing here? Just because there's nothing here doesn't mean people don't need coaching!</p>
 </div>

@@ -7,16 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit {
   title = 'app';
-	firebase = window['firebase'];
+  firebase = window['firebase'];
 
-	ngOnInit() {
-		this.firebase.database()
-			.ref(`people/${this.firebase.auth().currentUser.uid}`)
-			.on('value', res => {
-				const data = res.val();
-				data.uid = this.firebase.auth().currentUser.uid;
-				localStorage.setItem('user', JSON.stringify(data));
-			});
-	}
+  ngOnInit() {
+    this.firebase.database()
+      .ref(`people/${this.firebase.auth().currentUser.uid}`)
+      .on('value', res => {
+        const data = res.val();
+        data.uid = this.firebase.auth().currentUser.uid;
+        localStorage.setItem('user', JSON.stringify(data));
+      });
+  }
 
 }

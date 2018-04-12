@@ -1,4 +1,5 @@
 <mat-card class="request-card" *ngIf="person">
+  <div class="new-badge" *ngIf="person['hasBadge']">NEW</div>
 	<div mat-card-avatar class="profile-image" *ngIf="person['image']" [ngStyle]="{'background-image': 'url(' + person['image'] + ')'}"></div>
 	<mat-card-title class="profile-name">{{ person['firstName'] }} {{ person['lastName'] }}</mat-card-title>
 	<mat-chip-list>
@@ -11,6 +12,7 @@
 	</mat-card-header>
 	<mat-card-actions>
 		<button mat-raised-button *ngIf="person['coach'] && user.uid === person['coach']['id']" color="primary" (click)="acceptAssignment(person['assignmentId'])">ACCEPT</button>
+    <button mat-button *ngIf="person['coach'] && user.uid === person['coach']['id']" color="primary" (click)="declineAssignment(person['assignmentId'])">DECLINE</button>
     <button mat-button *ngIf="person['coach'] && user.uid !== person['coach']['id']" (click)="sendReminder($event.target, person['coach']['email'])">SEND REMINDER</button>
 		<button mat-button *ngIf="person['type'] === 'REQUEST'" (click)="assignPerson(person.id)">ASSIGN</button>
     <button mat-button (click)="viewProfile(person.id)">VIEW PROFILE</button>

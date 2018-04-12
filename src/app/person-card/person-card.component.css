@@ -35,3 +35,28 @@
 .request-card .mat-button {
 	margin: 12px auto;
 }
+
+.new-badge {
+  display: block;
+  color: #fff;
+  background: #673ab7;
+  width: 50px;
+  padding: 4px;
+  font-size: 12px;
+  text-align: center;
+  position: absolute;
+  top: 12px;
+  left: -10px;
+}
+
+.new-badge::before {
+  width: 0;
+  height: 0;
+  border-top: 0px solid transparent;
+  border-bottom: 4px solid transparent;
+  border-right: 10px solid #270a77;
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+}

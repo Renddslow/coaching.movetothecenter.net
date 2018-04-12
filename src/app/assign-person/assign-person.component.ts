@@ -32,34 +32,41 @@ export class AssignPersonComponent implements OnInit {
         .then(({person, coach}) => {
           this.firebase.database()
             .ref(`requests/${personId}`)
-            .remove();
-          const assignmentData = {
-            personId: personId,
-            firstName: person.firstName,
-            lastName: person.lastName,
-            image: person.image || '',
-            coach: {
-              id: coachId,
-              firstName: coach.firstName,
-              lastName: coach.lastName,
-              image: coach.image || '',
-              email: coach.email
-            },
-            status: 'PENDING',
-            assigned: moment().unix()
-          };
-          console.log({ person, coach });
-          this.http.post('https://api.flatlandchurch.com/v2/emails/coachingAssignments?key=202f1c42-7054-46ee-8ca2-ddc85f9c789b', {
-            person,
-            coach
-          }).subscribe(res => {
-            // Apppppparrently observers only work if you're subscribed? Idk, I could look it up but I won't
-            console.log('Notification sent!');
-          });
-          console.log(assignmentData);
-          return this.firebase.database()
-            .ref(`assignments/${moment().unix()}`)
-            .set(assignmentData);
+            .once('value')
+            .then(res => res.val())
+            .then(request => {
+              this.firebase.database()
+                .ref(`requests/${personId}`)
+                .remove();
+              const assignmentData = {
+                personId: personId,
+                firstName: person.firstName,
+                lastName: person.lastName,
+                image: person.image || '',
+                coach: {
+                  id: coachId,
+                  firstName: coach.firstName,
+                  lastName: coach.lastName,
+                  image: coach.image || '',
+                  email: coach.email
+                },
+                status: 'PENDING',
+                assigned: moment().unix(),
+                history: request.history
+              };
+              console.log({ person, coach });
+              this.http.post('https://api.flatlandchurch.com/v2/emails/coachingAssignments?key=202f1c42-7054-46ee-8ca2-ddc85f9c789b', {
+                person,
+                coach
+              }).subscribe(res => {
+                // Apppppparrently observers only work if you're subscribed? Idk, I could look it up but I won't
+                console.log('Notification sent!');
+              });
+              console.log(assignmentData);
+              return this.firebase.database()
+                .ref(`assignments/${moment().unix()}`)
+                .set(assignmentData);
+            })
         })
         .then(() => {
           this.nav.navigate(['/person/', personId]);
