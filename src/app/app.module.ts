@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpModule } from '@angular/http';
-import { FormsModule }   from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 import { 	MatCardModule,
   MatTabsModule,
@@ -14,7 +14,8 @@ import { 	MatCardModule,
   MatChipsModule,
   MatInputModule,
   MatProgressBarModule,
-  MatTooltipModule
+  MatDialogModule,
+  MatSelectModule
 } from '@angular/material';
 import 'hammerjs';
 
@@ -29,6 +30,7 @@ import { AssignmentComponent } from './assignment/assignment.component';
 import { PeopleComponent } from './people/people.component';
 import { LoginComponent } from './login/login.component';
 import { AssignPersonComponent } from './assign-person/assign-person.component';
+import { EditDialogComponent } from './edit-dialog/edit-dialog.component';
 
 const appRoutes: Routes = [
   { path: '', component: DashboardComponent },
@@ -49,7 +51,8 @@ const appRoutes: Routes = [
     AssignmentComponent,
     PeopleComponent,
     LoginComponent,
-    AssignPersonComponent
+    AssignPersonComponent,
+    EditDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -66,7 +69,11 @@ const appRoutes: Routes = [
     MatInputModule,
     MatProgressBarModule,
     FormsModule,
-    MatTooltipModule
+    MatDialogModule,
+    MatSelectModule
+  ],
+  entryComponents: [
+    EditDialogComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

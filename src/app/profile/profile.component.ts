@@ -32,6 +32,7 @@ export class ProfileComponent implements OnInit {
         .on('value', res => {
           if (res.val()) {
             this.request = this.formatTimes(res.val());
+						this.request['type'] = 'request';
           }
         });
       this.firebase.database()
@@ -43,7 +44,10 @@ export class ProfileComponent implements OnInit {
             const data = res.val();
             this.assignmentsPBC = Object.keys(data)
               .map(key => {
-                return data[key];
+								const assignments = data[key];
+								assignments['id'] = key;
+								assignments['type'] = 'assignment';
+                return assignments;
               })
               .map(this.formatTimes);
           }
@@ -57,7 +61,10 @@ export class ProfileComponent implements OnInit {
             const data = res.val();
             this.coachingAssignments = Object.keys(data)
               .map(key => {
-                return data[key];
+								const assignments = data[key];
+								assignments['id'] = key;
+								assignments['type'] = 'assignment';
+                return assignments;
               })
               .map(this.formatTimes);
           }
