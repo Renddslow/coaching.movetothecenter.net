@@ -4,6 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpModule } from '@angular/http';
 import { FormsModule }   from '@angular/forms';
+import { SimplemdeModule, SIMPLEMDE_CONFIG } from 'ng2-simplemde';
 
 import { 	MatCardModule,
 					MatTabsModule,
@@ -15,7 +16,8 @@ import { 	MatCardModule,
 					MatInputModule,
 					MatProgressBarModule,
 					MatDialogModule,
-					MatSelectModule
+					MatSelectModule,
+					MatTooltipModule
 				} from '@angular/material';
 import 'hammerjs';
 
@@ -31,6 +33,8 @@ import { PeopleComponent } from './people/people.component';
 import { LoginComponent } from './login/login.component';
 import { AssignPersonComponent } from './assign-person/assign-person.component';
 import { EditDialogComponent } from './edit-dialog/edit-dialog.component';
+import { NotesDialogComponent } from './notes-dialog/notes-dialog.component';
+import { NoteCardComponent } from './note-card/note-card.component';
 
 const appRoutes: Routes = [
   { path: '', component: DashboardComponent },
@@ -52,7 +56,9 @@ const appRoutes: Routes = [
     PeopleComponent,
     LoginComponent,
     AssignPersonComponent,
-    EditDialogComponent
+    EditDialogComponent,
+    NotesDialogComponent,
+    NoteCardComponent
   ],
   imports: [
     BrowserModule,
@@ -70,10 +76,16 @@ const appRoutes: Routes = [
 		MatProgressBarModule,
 		FormsModule,
 		MatDialogModule,
-		MatSelectModule
+		MatSelectModule,
+		MatTooltipModule,
+		SimplemdeModule.forRoot({
+			provide: SIMPLEMDE_CONFIG,
+			useValue: {}
+		}),
   ],
 	entryComponents: [
-		EditDialogComponent
+		EditDialogComponent,
+		NotesDialogComponent
 	],
   providers: [],
   bootstrap: [AppComponent]

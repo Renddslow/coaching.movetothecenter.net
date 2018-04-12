@@ -44,9 +44,11 @@
 			[id]="personId"></request-card>
   </mat-tab>
 	<mat-tab label="Notes">
-    <!--<button mat-fab class="move-fab-mini">-->
-      <!--<mat-icon class="mat-24" matTooltip="Subscribe to note changes" [matTooltipPosition]="'before'">notifications_off</mat-icon>-->
-    <!--</button>-->
+    <note-card
+		 *ngFor="let note of notes"
+		 [note]="note"
+		 (click)="openNote(note)"
+		></note-card>
     <button mat-fab color="primary" class="move-fab" (click)="addNote()">
       <mat-icon class="mat-24">add</mat-icon>
     </button>
