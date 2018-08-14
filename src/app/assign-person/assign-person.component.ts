@@ -52,7 +52,7 @@ export class AssignPersonComponent implements OnInit {
                 },
                 status: 'PENDING',
                 assigned: moment().unix(),
-                history: request.history
+                history: request.history || {}
               };
               console.log({ person, coach });
               this.http.post('https://api.flatlandchurch.com/v2/emails/coachingAssignments?key=202f1c42-7054-46ee-8ca2-ddc85f9c789b', {
