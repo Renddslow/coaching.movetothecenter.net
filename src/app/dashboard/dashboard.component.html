@@ -7,6 +7,5 @@
 	<person-card *ngFor="let pending of pendings" [person]="pending"></person-card>
 </div>
 <div class="no-cards-message" *ngIf="!requests.length && !pendings.length">
-  <h3>Oh boy! There are no open or pending assignments.</h3>
-  <p>What are you still doing here? Just because there's nothing here doesn't mean people don't need coaching!</p>
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
 </div>
